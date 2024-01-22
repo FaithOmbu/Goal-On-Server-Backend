@@ -3,7 +3,7 @@ const GOALS = require("../models/goalsmodel");
 //Find Method.. to get things from the database..find()
 const getAllGoals = async (req, res) => {
   try {
-    const goals = await GOALS.find();
+    const goals = await GOALS.find({}).sort("-createdAt")
     res.status(200).json({ NumOfGoals: goals.length, goals, success: true });
   } catch (error) {
     res.json(error);
