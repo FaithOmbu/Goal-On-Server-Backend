@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const cors = require('cors');
 const goalRouter = require('./routes/goalRouter')
@@ -10,7 +10,7 @@ const goalRouter = require('./routes/goalRouter')
 //middlewares
 app.use(express.json())
 app.use(cors())
-console.log('okay');
+// console.log('okay');
 
 
 //routes
@@ -30,7 +30,7 @@ app.use((req,res)=> {
 
 const startServer = async () => {
     try {
-        console.log('here');
+        // console.log('here');
         await mongoose.connect(process.env.MONGO_URL, {dbName: "goalServer"})
         app.listen(port,()=> {
             console.log(`Server running on port: ${port}...`);
